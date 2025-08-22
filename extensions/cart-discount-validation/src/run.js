@@ -10,6 +10,7 @@
  * @returns {FunctionRunResult}
  */
 export function run(input) {
+  console.log('App installed', input);
   const errors = input.cart.lines
     .filter(({ quantity }) => quantity > 1)
     .map(() => ({
@@ -17,7 +18,12 @@ export function run(input) {
       target: "$.cart",
     }));
 
+  errors.push({
+    localizedMessage: "Not possible to order more than one of each",
+    target: "$.cart",
+  })
+
   return {
     errors
   }
-};
+}
