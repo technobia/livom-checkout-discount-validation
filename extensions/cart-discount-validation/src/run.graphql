@@ -1,7 +1,0 @@
-query RunInput {
-  cart {
-    lines {
-      quantity
-    }
-  }
-}
